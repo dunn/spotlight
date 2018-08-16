@@ -50,7 +50,7 @@ module Migration
     def copy_exhibit_thumbnail_from_featured_image(image)
       return unless Spotlight::Exhibit.where(thumbnail_id: image.id).any?
       filename = image.read_attribute_before_type_cast('image')
-      filepath = "public/#{image.image.store_dir}/#{filename}"
+      filepath = "#{image.image.store_dir}/#{filename}"
       image.becomes!(Spotlight::ExhibitThumbnail)
       image.save
       return unless filename.present? && File.exist?(filepath)

@@ -112,6 +112,7 @@ module Spotlight
 
     # The allowed file extensions for uploading non-repository items.
     config.allowed_upload_extensions = %w(jpg jpeg png)
+    config.upload_dir = 'public/uploads'.freeze
 
     # Suffixes for exhibit-specific solr fields
     config.solr_fields = OpenStruct.new
