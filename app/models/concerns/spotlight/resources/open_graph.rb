@@ -21,9 +21,9 @@ module Spotlight
       end
 
       def opengraph_properties
-        Hash[opengraph.map do |k, v|
-          ["#{opengraph_solr_field_name(k)}_tesim", v]
-        end]
+        opengraph.transform_keys do |k|
+          "#{opengraph_solr_field_name(k)}_tesim"
+        end
       end
 
       private

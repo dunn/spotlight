@@ -60,11 +60,12 @@ describe Spotlight::MainAppHelpers, type: :helper do
       allow(helper).to receive_messages(current_exhibit: exhibit)
       allow(helper).to receive_messages(current_site: site)
 
-      allow(Spotlight::Engine.config).to receive(:exhibit_themes).and_return(%w(modern fancy))
+      allow(Spotlight::Engine.config).to receive(:exhibit_themes).and_return(%w[modern fancy])
     end
 
     context 'without an exhibit context and without a site-wide theme' do
       let(:exhibit) { nil }
+
       before do
         site.update(theme: nil)
       end
@@ -76,6 +77,7 @@ describe Spotlight::MainAppHelpers, type: :helper do
 
     context 'without an exhibit context and with a site-wide theme' do
       let(:exhibit) { nil }
+
       before do
         site.update(theme: 'fancy')
       end

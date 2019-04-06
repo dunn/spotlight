@@ -28,8 +28,8 @@ module Spotlight
       # can't use default_blacklight_config until after the BlacklightConfiguration
       # is created or we run into a circular dependency.
       default_fields = Spotlight::Engine.blacklight_config.search_fields
-      self.search_fields = default_fields.each_with_object({}) do |(k, v), obj|
-        obj[k] = { enabled: v.fetch(:enabled, true) }
+      self.search_fields = default_fields.transform_values do |v|
+        { enabled: v.fetch(:enabled, true) }
       end
     end
 
@@ -39,8 +39,8 @@ module Spotlight
       # can't use default_blacklight_config until after the BlacklightConfiguration
       # is created or we run into a circular dependency.
       default_fields = Spotlight::Engine.blacklight_config.sort_fields
-      self.sort_fields = default_fields.each_with_object({}) do |(k, v), obj|
-        obj[k] = { enabled: v.fetch(:enabled, true) }
+      self.sort_fields = default_fields.transform_values do |v|
+        { enabled: v.fetch(:enabled, true) }
       end
     end
 

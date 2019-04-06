@@ -81,11 +81,11 @@ module Spotlight
     end
 
     def downstream_parameters
-      configured_params.each_with_object({}) do |(key, value), hsh|
-        hsh[key] = if value.respond_to?(:call)
-                     value.call(self)
-                   else
-                     value
+      configured_params.transform_values do |value|
+        if value.respond_to?(:call)
+          value.call(self)
+        else
+          value
                    end
       end
     end

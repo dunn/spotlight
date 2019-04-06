@@ -21,7 +21,6 @@ Bundler/OrderedGems:
 Capybara/VisibilityMatcher:
   Enabled: false
 
-
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 

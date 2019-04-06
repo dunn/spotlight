@@ -46,16 +46,16 @@ module Spotlight
     # This gets the number of *documents* with a field
     def document_counts
       @document_count ||= begin
-        solr_response.facet_queries.each_with_object({}) do |(k, v), h|
-          h[k.split(/:/).first] = v
+        solr_response.facet_queries.transform_keys do |k|
+          k.split(/:/).first
         end
       end
     end
 
     def terms
       @terms ||= begin
-        solr_response.aggregations.each_with_object({}) do |(facet_name, facet), h|
-          h[facet_name] = facet.items.map(&:label)
+        solr_response.aggregations.transform_values do |facet|
+          facet.items.map(&:label)
         end
       end
     end

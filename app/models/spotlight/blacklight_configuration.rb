@@ -29,7 +29,7 @@ module Spotlight
       model.index_fields&.each do |_k, v|
         v[:enabled] ||= v.any? { |_k1, v1| !v1.blank? }
 
-        default_blacklight_config.view.keys.each do |view|
+        default_blacklight_config.view.each_key do |view|
           v[view] &&= value_to_boolean(v[view])
         end
 
