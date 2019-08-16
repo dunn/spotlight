@@ -32,7 +32,8 @@
 
   </head>
   <body class="<%= render_body_class %>">
-  <%= render partial: 'shared/header_navbar' %>
+
+  <%= render_themed_partial "shared/header_navbar" %>
   <%= render partial: 'shared/masthead' %>
   <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
@@ -46,6 +47,6 @@
     </div>
   </div>
 
-  <%= render :partial => 'shared/footer' %>
+  <%= render_themed_partial "shared/footer" %>
   </body>
 </html>
