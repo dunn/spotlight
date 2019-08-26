@@ -15,18 +15,20 @@
         <% elsif has_thumbnail? document %>
           <%= render_thumbnail_tag(document, {}, document_counter: -1) %>
         <% end %>
-        <div class="carousel-caption">
-          <% if solr_documents_carousel_block.primary_caption? %>
-            <h3 class="primary">
-              <%= doc_presenter.field_value solr_documents_carousel_block.primary_caption_field %>
-            </h3>
-          <% end %>
-          <% if solr_documents_carousel_block.secondary_caption? %>
-            <div class="secondary">
-              <%= doc_presenter.field_value solr_documents_carousel_block.secondary_caption_field %>
-            </div>
-          <% end %>
-        </div>
+        <% if solr_documents_carousel_block.primary_caption? || solr_documents_carousel_block.secondary_caption? %>
+          <div class="carousel-caption">
+            <% if solr_documents_carousel_block.primary_caption? %>
+              <h3 class="primary">
+                <%= doc_presenter.field_value solr_documents_carousel_block.primary_caption_field %>
+              </h3>
+            <% end %>
+            <% if solr_documents_carousel_block.secondary_caption? %>
+              <div class="secondary">
+                <%= doc_presenter.field_value solr_documents_carousel_block.secondary_caption_field %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
       <% indicators << capture do %>
         <li data-target="#<%= html_id %>" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
