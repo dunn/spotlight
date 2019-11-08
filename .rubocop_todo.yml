@@ -35,11 +35,6 @@ Lint/MissingCopEnableDirective:
 Metrics/MethodLength:
   Max: 11
 
-# Offense count: 2
-# Configuration parameters: CountComments.
-Metrics/ModuleLength:
-  Max: 127
-
 # Offense count: 6
 # Configuration parameters: ForbiddenDelimiters.
 # ForbiddenDelimiters: (?-mix:(^|\s)(EO[A-Z]{1}|END)(\s|$))
@@ -75,7 +70,7 @@ Naming/MethodParameterName:
     - 'app/models/spotlight/filter.rb'
     - 'app/models/spotlight/resources/iiif_manifest.rb'
 
-# Offense count: 64
+# Offense count: 62
 RSpec/AnyInstance:
   Enabled: false
 
@@ -88,7 +83,7 @@ RSpec/BeforeAfterAll:
     - 'spec/features/exhibits/translation_editing_spec.rb'
     - 'spec/features/javascript/locale_selector_spec.rb'
 
-# Offense count: 69
+# Offense count: 68
 # Configuration parameters: Prefixes.
 # Prefixes: when, with, without
 RSpec/ContextWording:
@@ -100,7 +95,13 @@ RSpec/EmptyExampleGroup:
   Exclude:
     - 'spec/factories/tags.rb'
 
-# Offense count: 290
+# Offense count: 1
+# Cop supports --auto-correct.
+RSpec/EmptyLineAfterFinalLet:
+  Exclude:
+    - 'spec/features/exhibit_deletion_spec.rb'
+
+# Offense count: 287
 # Configuration parameters: Max.
 RSpec/ExampleLength:
   Enabled: false
@@ -133,7 +134,7 @@ RSpec/MessageChain:
     - 'spec/models/spotlight/blacklight_configuration_spec.rb'
     - 'spec/views/spotlight/browse/_search.html.erb_spec.rb'
 
-# Offense count: 212
+# Offense count: 209
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: have_received, receive
 RSpec/MessageSpies:
@@ -149,6 +150,14 @@ RSpec/MissingExampleGroupArgument:
 # Configuration parameters: IgnoreSharedExamples.
 RSpec/NamedSubject:
   Enabled: false
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: Strict, EnforcedStyle, AllowedExplicitMatchers.
+# SupportedStyles: inflected, explicit
+RSpec/PredicateMatcher:
+  Exclude:
+    - 'spec/features/exhibit_deletion_spec.rb'
 
 # Offense count: 8
 RSpec/RepeatedDescription:
