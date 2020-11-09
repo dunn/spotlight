@@ -4,8 +4,9 @@ module Spotlight
   ##
   # Helpers that are injected into the main application (because they used in layouts)
   module MainAppHelpers
-    include NavbarHelper
-    include ThemeHelper
+    include Spotlight::NavbarHelper
+    include Spotlight::MastheadHelper
+    include Spotlight::ThemeHelper
 
     def cache_key_for_spotlight_exhibits
       "#{Spotlight::Exhibit.count}/#{Spotlight::Exhibit.maximum(:updated_at).try(:utc)}"

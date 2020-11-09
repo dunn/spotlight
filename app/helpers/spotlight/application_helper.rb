@@ -9,6 +9,7 @@ module Spotlight
     include MetaHelper
     include CropHelper
     include LanguagesHelper
+    include MastheadHelper
     include ThemeHelper
 
     ##
